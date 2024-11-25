@@ -1,0 +1,22 @@
+
+сброс user_id
+SELECT setval(pg_get_serial_sequence('user', 'id'), COALESCE((SELECT MAX(id) + 1 FROM "user"), 1), false);
+
+
+
+alembic init alembic
+alembic revision --autogenerate -m "Database create" 
+alembic stamp head
+alembic upgrade head
+
+
+
+alembic upgrade acae94981912   
+
+
+
+{
+  "name": "string",
+  "password": "string",
+  "email": "string"
+}
